@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://d25qcimt2s6kn"]
+
+[ext_resource type="PackedScene" uid="uid://ct4jb2bjupjwn" path="res://player.tscn" id="1_f3sb7"]
+[ext_resource type="Texture2D" uid="uid://cf7kckeolecbq" path="res://icon.svg" id="1_fj7yv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tlwt5"]
+albedo_texture = ExtResource("1_fj7yv")
+
+[node name="Node3D" type="Node3D" unique_id=112084806]
+
+[node name="Globe" type="CSGSphere3D" parent="." unique_id=475059064]
+radius = 30.0
+radial_segments = 16
+rings = 12
+material = SubResource("StandardMaterial3D_tlwt5")
+
+[node name="CharacterBody3D" parent="." unique_id=1950263551 node_paths=PackedStringArray("origin") instance=ExtResource("1_f3sb7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 30)
+cruise_speed = 5.0
+turn_rate = 0.5
+origin = NodePath("../Globe")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1392622775]
+transform = Transform3D(1, 0, 0, 0, 0.49390385, 0.8695165, 0, -0.8695165, 0.49390385, 0, 11.587857, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=568325406]
+transform = Transform3D(1, 0, 0, 0, 0.6389523, 0.76924634, 0, -0.76924634, 0.6389523, 0, 39.941547, 33.55979)
